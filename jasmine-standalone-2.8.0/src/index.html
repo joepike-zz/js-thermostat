@@ -10,7 +10,7 @@
         <button id="up">+</button>
         <button id="down">-</button>
         <button id="reset">reset</button>
-        power saving mode is <span id="displayPSM">on</span>
+        power saving mode is <a id="displayPSM"></a>
         <button id="psmSwitch">PSM switch</button>
       </p>
     </section>
@@ -25,11 +25,13 @@
           thermostat.up(1);
           // $('#temperature').html(thermostat.temp);
           update();
+          updateColor();
         })
 
         $("#down").click(function () {
           thermostat.down(1);
           update();
+          updateColor();
         })
 
         $("#reset").click(function () {
@@ -37,12 +39,19 @@
           update();
         })
 
-        $("#")
+        $("#psmSwitch").click(function() {
+          thermostat.psmSwitch();
+          updatePSM()
+        })
 
         update = function() {$('#temperature').html(thermostat.temp)};
 
-        update()
+        updatePSM = function() {$('#displayPSM').html(thermostat.displayPSM())};
 
+        updateColor = function() {document.getElementById("temperature").style.color = thermostat.color();}
+
+        update()
+        updatePSM()
 
       })
       </script>

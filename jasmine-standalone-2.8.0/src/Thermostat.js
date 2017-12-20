@@ -36,6 +36,19 @@ Thermostat.prototype.getEnergyUsage = function() {
   }
 }
 
+Thermostat.prototype.color = function() {
+  switch (true) {
+    case (this.temp > 25):
+      return "red"
+      break;
+    case (this.temp < 18):
+      return "green"
+      break;
+    default:
+    return "black"
+  }
+}
+
 Thermostat.prototype.psmSwitch = function() {
   if(this.psm) {
     this.psm = false;
