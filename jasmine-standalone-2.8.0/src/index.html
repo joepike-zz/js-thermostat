@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Thermostat</title>
+  </head>
+  <body>
+    <section>
+      <h1 id="temperature"></h1>
+      <p>
+        <button id="up">+</button>
+        <button id="down">-</button>
+        <button id="reset">reset</button>
+        power saving mode is <span id="displayPSM">on</span>
+        <button id="psmSwitch">PSM switch</button>
+      </p>
+    </section>
+    <script src="thermostat.js"></script>
+    <script src="jquery.js"></script>
+    <script>
+      $(function() {
+
+        $(thermostat = new Thermostat);
+
+        $("#up").click(function() {
+          thermostat.up(1);
+          // $('#temperature').html(thermostat.temp);
+          update();
+        })
+
+        $("#down").click(function () {
+          thermostat.down(1);
+          update();
+        })
+
+        $("#reset").click(function () {
+          thermostat.reset();
+          update();
+        })
+
+        $("#")
+
+        update = function() {$('#temperature').html(thermostat.temp)};
+
+        update()
+
+
+      })
+      </script>
+  </body>
+</html>
