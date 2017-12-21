@@ -13,11 +13,22 @@
         power saving mode is <a id="displayPSM"></a>
         <button id="psmSwitch">PSM switch</button>
       </p>
+      <!-- <p>
+        <button type="button" onclick="getWeather()">Change Weather</button>
+      </p> -->
+    </section>
+    <section>
+      <h1>Current temperature: <span id="current-temperature"></span></h1>
     </section>
     <script src="thermostat.js"></script>
     <script src="jquery.js"></script>
     <script>
       $(function() {
+
+        $.get('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=3337bc2c1aab0f186a14ff9761c8e4d6', function(data) {
+          // console.log(data.list[0].main);
+          $('#current-temperature').text(data.main.temp);
+        })
 
         $(thermostat = new Thermostat);
 
